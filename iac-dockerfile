@@ -1,0 +1,17 @@
+# iac-dockerfile
+FROM ubuntu:latest
+
+# Install Nginx
+RUN apt-get update && apt-get install -y nginx && apt-get clean
+
+# Set the working directory
+
+# Copy the website files
+COPY ./index.html /var/www/html
+
+# Expose the port that Nginx will run on
+EXPOSE 80
+
+# Start Nginx in the foreground
+CMD ["nginx", "-g", "daemon off;"]
+

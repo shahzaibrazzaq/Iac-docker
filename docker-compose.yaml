@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  iac-website:
+    build:
+      context: .
+      dockerfile: iac-dockerfile
+    ports:
+      - "8090:80"
+      - "8091:80"
+    hostname: iac-website
+    container_name: Iac-website
+    volumes:
+      - iac_db_data:/var/www/html
+volumes:
+  iac_db_data:
+
